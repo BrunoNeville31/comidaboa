@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_28_224606) do
+ActiveRecord::Schema.define(version: 2020_01_29_182824) do
+
+  create_table "admnistradors", id: :string, limit: 36, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nome"
+    t.string "email"
+    t.string "senha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "clientes", id: :string, limit: 36, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nome"
@@ -25,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_224606) do
     t.string "cep"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "senha"
   end
 
   create_table "pedido_produtos", id: :string, limit: 36, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_01_28_224606) do
     t.float "valor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "imagem"
     t.index ["tipo_produto_id"], name: "fk_rails_0c17314e5f"
   end
 
